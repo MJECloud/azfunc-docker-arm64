@@ -2,7 +2,7 @@ FROM arm64v8/debian:buster-slim as build-env
 
 COPY ./qemu-arm-static /usr/bin/
 
-ENV GRPC_VERSION=v1.38.x
+ENV GRPC_VERSION=v1.27.x
 
 RUN apt-get update && \
     apt-get install --yes build-essential autoconf libtool pkg-config  \
