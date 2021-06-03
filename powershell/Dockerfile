@@ -1,6 +1,6 @@
 # Build the runtime from source
 ARG HOST_VERSION=3.0.15885
-ARG REPO
+ARG REPO=magicpi:5000
 FROM $REPO/azfuncbase:arm64v8 as grpc-image
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS runtime-image
 ARG HOST_VERSION
@@ -44,7 +44,7 @@ RUN apt-get update && \
     apt-get install -y qemu-user qemu-user-static
 
 
-FROM $REPO/aspnet:arn64v8
+FROM $REPO/aspnet:arm64v8
 ARG HOST_VERSION
 
 # copy bundles, host runtime and powershell worker from the build image
